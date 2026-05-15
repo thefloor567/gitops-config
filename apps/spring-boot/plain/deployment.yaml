@@ -1,0 +1,28 @@
+# apps/spring-boot/plain/deployment.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: gitops-app
+  namespace: spring-boot-dev    # 네임스페이스 명시
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: gitops-app
+  template:
+    metadata:
+      labels:
+        app: gitops-app
+    spec:
+      containers:
+        - name: app          # : nginx 테스트 이미지 사용
+          image: nginx:1.27
+          ports:
+            - containerPort: 80
+          resources:
+            requests:
+              cpu: "100m"      # 최소 0.1 코어
+              memory: "128Mi"  # 최소 128MB
+            limits:
+              cpu: "250m"      # 최대 0.25 코어
+              memory: "256Mi"  # 최대 256MB

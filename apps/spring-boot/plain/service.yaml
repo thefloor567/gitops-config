@@ -1,0 +1,13 @@
+# apps/spring-boot/plain/service.yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: spring-boot-svc
+  namespace: spring-boot-dev
+spec:
+  selector:
+    app: gitops-app    # Deployment 의 label 과 일치해야 함
+  ports:
+    - port: 80              # 서비스 포트 (외부에서 접근하는 포트)
+      targetPort: 80        # 컨테이너 포트 (Pod 내부 포트)
+  type: ClusterIP           # 클러스터 내부에서만 접근 가능
