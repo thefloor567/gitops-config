@@ -15,10 +15,7 @@ labels:
 images:
 - name: gitops-app
   newName: thefloor123/gitops-app
-  newTag: sha-b07de8e
-- name: nginx
-  newName: your-dockerhub-username/gitops-app
-  newTag: sha-c703d94
+  newTag: latest
 
 replicas:
 - count: 1
