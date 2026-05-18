@@ -15,7 +15,7 @@ labels:
 images:
 - name: gitops-app
   newName: thefloor123/gitops-app
-  newTag: latest
+  newTag: sha-ad1c54c
 
 replicas:
 - count: 1
