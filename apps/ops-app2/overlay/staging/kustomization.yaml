@@ -1,0 +1,27 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+resources:
+  - ../../base
+
+namespace: ops-app2-staging
+
+images:
+  - name: ops-app2
+    newName: nginx
+    newTag: "1.27-alpine"
+
+patches:
+  - patch: |-
+      - op: replace
+        path: /spec/replicas
+        value: 2
+    target:
+      kind: Deployment
+      name: ops-app2
+
+configMapGenerator:
+  - name: ops-app2-config
+    behavior: merge
+    literals:
+      - PROFILE=staging
