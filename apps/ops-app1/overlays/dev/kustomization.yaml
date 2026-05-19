@@ -9,7 +9,7 @@ namespace: ops-app1-dev
 images:
 - name: ops-app1
   newName: thefloor123/ops-app1
-  newTag: sha-fa400f8
+  newTag: sha-da2ff8d
 
 patches:
 - patch: |-
