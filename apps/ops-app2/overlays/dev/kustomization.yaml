@@ -9,7 +9,7 @@ namespace: ops-app2-dev
 images:
 - name: ops-app2
   newName: thefloor123/ops-app2
-  newTag: sha-2f12de9
+  newTag: sha-8582569
 
 patches:
 - patch: |-
