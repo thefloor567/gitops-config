@@ -8,8 +8,8 @@ namespace: ops-app1-dev
 
 images:
 - name: ops-app1
-  newName: thefloor123/ops-app1
-  newTag: sha-fa400f8
+  newName: 824267124826.dkr.ecr.ap-northeast-2.amazonaws.com/ops-app1
+  newTag: sha-d02a5d2
 
 patches:
 - patch: |-
