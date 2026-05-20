@@ -1,4 +1,3 @@
-# apps/ops-app1/overlays/eks-dev/gateway-route.yaml
 ---
 # LoadBalancerConfiguration — ALB 본체 설정
 apiVersion: gateway.k8s.aws/v1beta1

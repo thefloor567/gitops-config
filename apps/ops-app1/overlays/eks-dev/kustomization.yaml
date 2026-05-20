@@ -21,12 +21,18 @@ patches:
     target:
       kind: Deployment
       name: ops-app1
-
+  - patch: |-
+      - op: replace
+        path: /spec/template/spec/containers/0/resources/limits/memory
+        value: 1Gi
+    target:
+      kind: Deployment
+      name: ops-app1
   - patch: |-
       - op: add
         path: /spec/template/spec/containers/0/envFrom/-
-        value: 
-          secretRef:
+        value:
+          secrectRef:
             name: ops-app1-secrets
     target:
       kind: Deployment
