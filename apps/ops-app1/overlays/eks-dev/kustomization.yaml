@@ -32,7 +32,7 @@ patches:
       - op: add
         path: /spec/template/spec/containers/0/envFrom/-
         value:
-          secrectRef:
+          secretRef:
             name: ops-app1-secrets
     target:
       kind: Deployment

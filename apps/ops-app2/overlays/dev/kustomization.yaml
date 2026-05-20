@@ -2,26 +2,27 @@ apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 
 resources:
-- ../../base
+  - ../../base
 
 namespace: ops-app2-dev
 
 images:
-- name: ops-app2
-  newName: 824267124826.dkr.ecr.ap-northeast-2.amazonaws.com/ops-app2
-  newTag: sha-d83e65e
+  - name: ops-app2
+    newName: 824267124826.dkr.ecr.ap-northeast-2.amazonaws.com/ops-app2
+    newTag: sha-d83e65e
 
 patches:
-- patch: |-
-    - op: replace
-      path: /spec/replicas
-      value: 1
-  target:
-    kind: Deployment
-    name: ops-app2
+  - patch: |-
+      - op: replace
+        path: /spec/replicas
+        value: 1
+    target:
+      kind: Deployment
+      name: ops-app2
 
 configMapGenerator:
-- behavior: merge
-  literals:
-  - PROFILE=dev
-  name: ops-app2-config
+  - behavior: merge
+    literals:
+      - PROFILE=dev
+      - OPS_APP2_URL=http://ops-app2.ops-app2-dev.svc.cluster.local:8081
+    name: ops-app2-config
