@@ -4,14 +4,14 @@ kind: Kustomization
 resources:
   - ../../base
   - external-secret.yaml
-  - gateway-route.yaml # Gateway API 매니페스트 (ops-app1만)
+  - gateway-route.yaml
 
 namespace: ops-app1-eks-dev
 
 images:
   - name: ops-app1
-    newName: <aws-account-id>.dkr.ecr.ap-northeast-2.amazonaws.com/ops-app1
-    newTag: "sha-placeholder" # CI가 자동 업데이트
+    newName: 824267124826.dkr.ecr.ap-northeast-2.amazonaws.com/ops-app1
+    newTag: sha-45c1865
 
 patches:
   - patch: |-
@@ -39,8 +39,8 @@ patches:
       name: ops-app1
 
 configMapGenerator:
-  - name: ops-app1-config
-    behavior: merge
+  - behavior: merge
     literals:
       - PROFILE=eks-dev
       - OPS_APP2_URL=http://ops-app2.ops-app2-eks-dev.svc.cluster.local:8081
+    name: ops-app1-config
